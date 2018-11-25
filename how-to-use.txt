@@ -1,0 +1,2 @@
+Run "npm install" inside this project folder to install all dependencies.
+Run son-server -p 3000 issue.json in code/src
