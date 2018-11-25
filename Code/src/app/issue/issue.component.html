@@ -15,7 +15,7 @@
           <option value="Major">Major</option>
           <option value="Critical">Critical</option>
         </select>
-        <p class="error" *ngIf="!serverity.valid && serverity.touched">Select  valid serverity</p>
+        <p class="error" *ngIf="!serverity.valid && form.touched">Select  valid serverity</p>
     </div>
     <div>
         <label for="status">status:</label>
@@ -24,7 +24,7 @@
           <option value="In-progress">In-progress</option>
           <option value="Closed">Closed</option>
         </select>
-        <p class="error" *ngIf="!status.valid && status.touched">Select valid  status</p>
+        <p class="error" *ngIf="!status.valid && form.touched">Select valid  status</p>
     </div>
 
 
@@ -35,19 +35,19 @@
     <div>
         <label for="createdDate">createdDate:</label>
   <input type="date" #createdDate="ngModel" name="createdDate" [(ngModel)]="form.value.createdDate" required>
-  <p class="error" *ngIf="!createdDate.valid && createdDate.touched"> Select vaild Date</p>
+  <p class="error" *ngIf="!createdDate.valid && form.touched"> Select vaild Date</p>
     </div>
     <div>
 
   <label for="resolvedDate">resolvedDate:</label>
   <input type="date" #resolvedDate="ngModel" name="resolvedDate" [(ngModel)]="form.value.resolvedDate" required>
-  <p class="error" *ngIf="!resolvedDate.valid && resolvedDate.touched"> Select vaild Date</p>
+  <!-- <p class="error" *ngIf="!resolvedDate.valid && resolvedDate.touched"> Select vaild Date</p> -->
 
     </div>
   </div>
   <br>
   <div style="text-align: center">
-      <button type="submit" [disabled]="!form.valid">Submit<span class="tooltip">Please enter the details.</span></button>
+      <button type="submit" [disabled]="!description.valid || !serverity.valid || !status.valid || !createdDate.valid">Submit<span class="tooltip">Please enter the details.</span></button>
   </div>
 
 </form>
