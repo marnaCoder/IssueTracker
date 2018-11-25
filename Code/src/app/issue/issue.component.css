@@ -44,8 +44,8 @@ input[type="date"]{
 }
 .error{
   color: rgb(247, 131, 131);
-  margin-top: -5px;
-  font-size: 10px;
+  margin-top: -2px;
+  font-size: 13px;
 
 }
 button[disabled]{
