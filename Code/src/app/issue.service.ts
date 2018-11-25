@@ -49,7 +49,8 @@ export class IssueService {
       }
       console.log(this.id);
       this.issues = issues;
-      this.updatedIssues.next(issues);
+      console.log(this.issues);
+      this.updatedIssues.next([...this.issues]);
     });
 
   }
@@ -63,15 +64,7 @@ export class IssueService {
   }
 
   updatedIssue(issue: Issue) {
-    console.log('updated issue');
-    const updateIssue = {
-      description: issue.description,
-      serverity: issue.serverity,
-      status: issue.status,
-      createdDate: issue.createdDate,
-      resolvedDate: issue.resovledDate
-    };
-    this.http.put('http://localhost:5555/issues/' + issue.id, updateIssue, this.httpOptions)
+    this.http.put('http://localhost:5555/issues/' + issue.id, issue, this.httpOptions)
     .subscribe( data => { console.log('issue Updated');
     this.getIssue();
     this.router.navigate(['/']);
